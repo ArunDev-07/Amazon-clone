@@ -78,12 +78,24 @@ document.querySelectorAll(".js-add-to-cart")
     }
     else{
       cart.push({
-        productid : productId,
+        productId : productId,
         Quantity : 1
       });
 
     };
-    console.log(cart);
+
+    let cartquantity = 0 ;
+
+    cart.forEach((item)=>{
+      cartquantity += item.Quantity ;
+
+    })
+    document.querySelector(".cart-quantity").innerHTML = cartquantity ;
+    
+
+
+
+          console.log(cart);
  
 
 
