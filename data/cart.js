@@ -37,7 +37,7 @@ export let cart = [{
 
       cart.forEach((cartitem)=>{
 
-        if(productId !== cartitem.productId){
+        if(cartitem.productId !== productId){
           newcart.push(cartitem);
         }
       });
