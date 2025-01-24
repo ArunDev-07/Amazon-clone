@@ -4,6 +4,8 @@ import { formcurrency } from './utils/money.js';
 
 
 let cartsummary ="";
+
+
 cart.forEach((cartitem)=>{
   const productId = cartitem.productId;
 
@@ -113,8 +115,8 @@ document.querySelectorAll(".js-delete-link")
 
 
   const container = document.querySelector(`.js-container-${productId}`);
-  
  container.remove();
+ 
   
   
 
