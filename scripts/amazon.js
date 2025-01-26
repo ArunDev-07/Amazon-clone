@@ -87,12 +87,11 @@ document.querySelectorAll(".js-add-to-cart")
    let cartquantity = 0 ;
 
   cart.forEach((cartitem)=>{
-    cartquantity += cartitem.Quantity ;
+     cartquantity += cartitem.Quantity ;
 
   })
   document.querySelector(".cart-quantity").innerHTML = cartquantity ;
-
-
+ 
 
 
   
