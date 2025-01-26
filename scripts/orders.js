@@ -108,6 +108,9 @@ document.querySelectorAll(".js-link")
  const productId = link.dataset.productId ; 
 
  removecart(productId);
+ const container = document.querySelector(`.js-container-${productId}`);
+ 
+container.remove();
  
 
 
