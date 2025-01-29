@@ -1,5 +1,8 @@
 import {cart,removecart} from '../data/cart.js';
 import { products } from '../data/products.js';
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import  formcurrency  from './utils/money.js';
+import { deliveryoptions } from '../data/deliveryoption.js';
 
 
 let cartsummaryhtml = "";
@@ -14,6 +17,30 @@ products.forEach((product)=>{
 matchingproduct = product ;
   }  
 });
+const deliveryoptionId = cartitem.deliveryoptionId ;
+
+
+let deliveryoption ; 
+ 
+deliveryoptions.forEach((option)=>{
+
+  if(option.id === deliveryoptionId){
+  deliveryoption = option ;
+  };
+});
+
+  const today = dayjs();
+      const deliverydate  = today.add(
+        deliveryoption.deliverydays,
+        'days'
+      );
+      const datestring  = deliverydate.format(
+        'dddd, MMMM D'
+      );
+  
+
+
+
 
 
 let cartsummary = 
@@ -22,7 +49,7 @@ let cartsummary =
  ` <div class="cart-item-container
  js-container-${matchingproduct.id}">
   <div class="delivery-date">
-    Delivery date: Tuesday, June 21
+    Delivery date: ${datestring}
   </div>
 
   <div class="cart-item-details-grid">
@@ -34,7 +61,7 @@ let cartsummary =
         ${matchingproduct.name}
       </div>
       <div class="product-price">
-        $${(matchingproduct.priceCents /100).toFixed(2)}
+        $${formcurrency(matchingproduct.priceCents)}
       </div>
       <div class="product-quantity">
         <span>
@@ -54,45 +81,9 @@ let cartsummary =
       <div class="delivery-options-title">
         Choose a delivery option:
       </div>
-      <div class="delivery-option">
-        <input type="radio" checked
-          class="delivery-option-input"
-          name="delivery-option-${matchingproduct.id}">
-        <div>
-          <div class="delivery-option-date">
-            Tuesday, June 21
-          </div>
-          <div class="delivery-option-price">
-            FREE Shipping
-          </div>
-        </div>
-      </div>
-      <div class="delivery-option">
-        <input type="radio"
-          class="delivery-option-input"
-          name="delivery-option-${matchingproduct.id}">
-        <div>
-          <div class="delivery-option-date">
-            Wednesday, June 15
-          </div>
-          <div class="delivery-option-price">
-            $4.99 - Shipping
-          </div>
-        </div>
-      </div>
-      <div class="delivery-option">
-        <input type="radio"
-          class="delivery-option-input"
-          name="delivery-option-${matchingproduct.id}">
-        <div>
-          <div class="delivery-option-date">
-            Monday, June 13
-          </div>
-          <div class="delivery-option-price">
-            $9.99 - Shipping
-          </div>
-        </div>
-      </div>
+      ${deliveryitems(matchingproduct , cartitem)}
+      
+      
     </div>
   </div>
 </div>
@@ -100,6 +91,67 @@ let cartsummary =
 
 cartsummaryhtml += cartsummary ;
 }));
+
+
+function deliveryitems(matchingproduct ,cartitem){
+
+  let html = "";
+
+  deliveryoptions.forEach((deliveryoption )=>{
+
+    
+    const today = dayjs();
+    const deliverydate  = today.add(
+      deliveryoption.deliverydays,
+      'days'
+    );
+    const datestring  = deliverydate.format(
+      'dddd, MMMM D'
+    );
+    const pricestring = deliveryoption.priceCents === 0
+    ? 'FREE'
+    : `$${formcurrency(deliveryoption.priceCents)} -`;
+
+    const ischecked = cartitem.deliveryoptionId === deliveryoption.id ; 
+const findchecked  = ischecked ? 'checked'  : '';
+console.log(cartitem.deliveryoptionId);
+
+
+
+html +=
+      `
+      <div class="delivery-option">
+          <input type="radio"
+        ${findchecked}
+            class="delivery-option-input"
+            name="delivery-option-${matchingproduct.id}  value="${matchingproduct.id} ">
+          <div>
+            <div class="delivery-option-date">
+             ${datestring}
+            </div>
+            <div class="delivery-option-price">
+              ${pricestring} Shipping
+            </div>
+          </div>
+        </div>
+      
+      
+      
+      `
+
+  });
+  return html ;
+
+}
+
+
+
+
+
+
+
+
+
 document.querySelector(".js-summary").innerHTML = cartsummaryhtml ;
 
 document.querySelectorAll(".js-link")
