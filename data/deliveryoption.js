@@ -16,4 +16,3 @@ export const deliveryoptions = [
     priceCents : 999
 }];
 
-

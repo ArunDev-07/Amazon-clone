@@ -1,8 +1,14 @@
-import {cart,removecart} from '../data/cart.js';
+import {cart,removecart,updatedeliveryoption} from '../data/cart.js';
 import { products } from '../data/products.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import  formcurrency  from './utils/money.js';
 import { deliveryoptions } from '../data/deliveryoption.js';
+
+
+
+
+
+
 
 
 let cartsummaryhtml = "";
@@ -29,6 +35,7 @@ deliveryoptions.forEach((option)=>{
   };
 });
 
+
   const today = dayjs();
       const deliverydate  = today.add(
         deliveryoption.deliverydays,
@@ -37,10 +44,11 @@ deliveryoptions.forEach((option)=>{
       const datestring  = deliverydate.format(
         'dddd, MMMM D'
       );
-  
+   
 
 
 
+      
 
 
 let cartsummary = 
@@ -114,17 +122,19 @@ function deliveryitems(matchingproduct ,cartitem){
 
     const ischecked = cartitem.deliveryoptionId === deliveryoption.id ; 
 const findchecked  = ischecked ? 'checked'  : '';
-console.log(cartitem.deliveryoptionId);
+
 
 
 
 html +=
       `
-      <div class="delivery-option">
+      <div class="delivery-option js-option"  
+      data-product-id="${matchingproduct.id}"
+      data-delivery-option-id="${deliveryoption.id}">
           <input type="radio"
         ${findchecked}
             class="delivery-option-input"
-            name="delivery-option-${matchingproduct.id}  value="${matchingproduct.id} ">
+            name="delivery-option-${matchingproduct.id} ">
           <div>
             <div class="delivery-option-date">
              ${datestring}
@@ -169,7 +179,23 @@ container.remove();
 
   })
 
-})
+});
+document.querySelectorAll(".js-option")
+.forEach((element)=>{
+  element.addEventListener("click", ()=>{
+
+
+const productId = element.dataset.productId ;
+const deliveryOptionId = element.dataset.deliveryOptionId ;
+updatedeliveryoption(productId ,deliveryOptionId);
+
+  
+  });
+
+});
+
+
+
 
 
 
