@@ -78,7 +78,7 @@ function savestorage() {
 
      
     };
-  export  function updatedeliveryoption (productId, deliveryOptionId) {
+    export function updatedeliveryoption (productId, deliveryOptionId) {
       let matchingitem;
     
       cart.forEach((cartitem)=>{
@@ -93,7 +93,6 @@ function savestorage() {
       
       savestorage();
   
-  console.log(matchingitem);
   
   
     };
