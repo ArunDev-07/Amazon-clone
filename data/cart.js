@@ -78,7 +78,7 @@ function savestorage() {
 
      
     };
-  export  function updatedeliveryoption (productId, delivery) {
+  export  function updatedeliveryoption (productId, deliveryOptionId) {
       let matchingitem;
     
       cart.forEach((cartitem)=>{
@@ -88,7 +88,7 @@ function savestorage() {
       
     
       });
-      matchingitem.deliveryoptionId = delivery ;
+      matchingitem.deliveryoptionId = deliveryOptionId ;
   
       
       savestorage();
