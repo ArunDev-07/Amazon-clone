@@ -3,6 +3,7 @@ import { products } from '../../data/products.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import  formcurrency  from '../utils/money.js';
 import { deliveryoptions , getdeliveryoptionId } from '../../data/deliveryoption.js';
+import { renderpaymentsummary } from './paymentsummary.js';
 
 
 
@@ -168,12 +169,17 @@ export function renderordersummary (){
         document.querySelectorAll(".js-link")
         .forEach((link)=>{
           link.addEventListener("click",()=>{
-        const productId = link.dataset.productId ; 
+        const productId = link.dataset.productId ;
+        
 
         removecart(productId);
         const container = document.querySelector(`.js-container-${productId}`);
         
         container.remove();
+
+        renderpaymentsummary();
+        renderordersummary();
+        
         
 
 
@@ -190,6 +196,7 @@ export function renderordersummary (){
         const deliveryOptionId = element.dataset.deliveryOptionId ;
         updatedeliveryoption(productId,deliveryOptionId)
         renderordersummary();
+        renderpaymentsummary();
 
           
           });

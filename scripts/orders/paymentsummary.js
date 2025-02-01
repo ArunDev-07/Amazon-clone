@@ -3,7 +3,7 @@ import { getdeliveryoptionId } from "../../data/deliveryoption.js";
 import { getproduct } from "../../data/products.js";
 import formcurrency from "../utils/money.js";
 
-
+ 
 export function renderpaymentsummary(){
    let items = 0;
    let shipping  = 0;

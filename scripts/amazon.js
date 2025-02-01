@@ -93,12 +93,7 @@ document.querySelectorAll(".js-add-to-cart")
 
   })
   document.querySelector(".cart-quantity").innerHTML = cartquantity ;
- 
-
-
-  
-    
-  
    
   });
+  
 });
