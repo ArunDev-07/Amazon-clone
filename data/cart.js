@@ -37,6 +37,7 @@ function savestorage() {
     if( productId === cartitem.productId){
      matchingitem = cartitem;
     };
+
   
     });
   
