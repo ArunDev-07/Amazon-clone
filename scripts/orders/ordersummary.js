@@ -6,7 +6,6 @@ import { deliveryoptions , getdeliveryoptionId } from '../../data/deliveryoption
 import { renderpaymentsummary } from './paymentsummary.js';
 
 
-
 export function renderordersummary (){
 
 
@@ -77,9 +76,11 @@ export function renderordersummary (){
                 <span>
                   Quantity: <span class="quantity-label">${cartitem.Quantity}</span>
                 </span>
-                <span class="update-quantity-link link-primary">
+                <span class="update-quantity-link link-primary
+               js-update-link"   data-product-id="${matchingproduct.id}">
                   Update
                 </span>
+                
                 <span class="delete-quantity-link link-primary
                 js-link"   data-product-id="${matchingproduct.id}">
                   Delete
@@ -158,6 +159,9 @@ export function renderordersummary (){
 
 
 
+       
+
+
 
 
 
@@ -184,9 +188,12 @@ export function renderordersummary (){
 
 
 
-          })
+          });
+
+
 
         });
+        
         document.querySelectorAll(".js-option")
         .forEach((element)=>{
           element.addEventListener("click", ()=>{
@@ -194,7 +201,8 @@ export function renderordersummary (){
 
         const productId = element.dataset.productId ;
         const deliveryOptionId = element.dataset.deliveryOptionId ;
-        updatedeliveryoption(productId,deliveryOptionId)
+        updatedeliveryoption(productId,deliveryOptionId);
+
         renderordersummary();
         renderpaymentsummary();
 
@@ -202,6 +210,23 @@ export function renderordersummary (){
           });
 
         });
+
+       const updatecart =  document.querySelectorAll(".js-update-link") ;
+       
+       updatecart.forEach((link)=>{
+        
+        link.addEventListener("click",()=>{
+          link.remove()
+          
+          
+        })
+       })
+       
+
+       
+
+
+
         }
 
        

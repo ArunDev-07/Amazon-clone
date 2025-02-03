@@ -11,11 +11,14 @@ export function renderpaymentsummary(){
    let Estimatedtax = 0 ;
    let ordertotal = 0 ;
    let paymenthtml = "";
+   let itemscount = 0;
 
 
    cart.forEach((cartitem)=>{
 const product =  getproduct(cartitem.productId);
+itemscount +=  cartitem.Quantity;
     items +=  product.priceCents * cartitem.Quantity ;
+    
 
     const handling = getdeliveryoptionId(cartitem.deliveryoptionId);
     shipping += handling.priceCents ;
@@ -31,6 +34,7 @@ const product =  getproduct(cartitem.productId);
    ordertotal += ordertax ;
 
    
+   
 
    const paymentsummaryHTML = 
          `
@@ -40,7 +44,7 @@ const product =  getproduct(cartitem.productId);
                </div>
 
                <div class="payment-summary-row">
-                  <div>Items (3):</div>
+                  <div class="items-count">Items (${itemscount}):</div>
                   <div class="payment-summary-money">$${formcurrency(items)}</div>
                </div>
 
@@ -77,6 +81,7 @@ const product =  getproduct(cartitem.productId);
 
          paymenthtml += paymentsummaryHTML;
          document.querySelector(".js-payment").innerHTML = paymenthtml ;
+         
          
   
 };

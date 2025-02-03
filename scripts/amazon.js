@@ -68,8 +68,6 @@ document.querySelector(".js-grid").innerHTML = producthtml;
 
 
 
-
-
   
 
 
@@ -82,17 +80,14 @@ document.querySelectorAll(".js-add-to-cart")
    
    
      addtocart(productId);
-
- 
-
-
-   let cartquantity = 0 ;
+     let cartquantity = 0 ;
 
   cart.forEach((cartitem)=>{
      cartquantity += cartitem.Quantity ;
 
   })
-  document.querySelector(".cart-quantity").innerHTML = cartquantity ;
+  document.querySelector(".cart-quantity").innerHTML = cartquantity
+
    
   });
   

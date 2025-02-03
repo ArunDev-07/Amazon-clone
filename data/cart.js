@@ -58,27 +58,27 @@ function savestorage() {
      
      
     };
-   export  function removecart(productId){
-     const newcart = [];
-
-
-     cart.forEach((cartitem)=>{
-      if (cartitem.productId !== productId){
-        newcart.push(cartitem);
-      }
-
-
-     });
-
-
-     cart = newcart;
-
-     savestorage();
-
-     
-
-     
-    };
+    export  function removecart(productId){
+      const newcart = [];
+ 
+ 
+      cart.forEach((cartitem)=>{
+       if (cartitem.productId !== productId){
+         newcart.push(cartitem);
+       }
+ 
+ 
+      });
+ 
+ 
+      cart = newcart;
+ 
+      savestorage();
+ 
+      
+ 
+      
+     };
     export function updatedeliveryoption (productId, deliveryOptionId) {
       let matchingitem;
     
