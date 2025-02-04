@@ -6,7 +6,7 @@ console.log('Converts cents into dollors')
 
 if(formcurrency(2095)==='20.95'){
 
-    console.log("passed")
+    console.log("passed") ;
 }
 else{
     console.log("failed") ;
