@@ -1,6 +1,6 @@
 import {formcurrency} from "../scripts/utils/money.js" ;
 
-console.log('test suite : format currency')
+console.log('test suite : formcurrency')
 
 console.log('Converts cents into dollors')
 
@@ -11,7 +11,7 @@ if(formcurrency(2095)==='20.95'){
 else{
     console.log("failed") ;
 };
-console.log('works with zero')
+console.log('works with 0')
 
 if(formcurrency(0) === '0.00'){
     console.log('passed')
