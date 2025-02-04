@@ -6,6 +6,11 @@ import { deliveryoptions , getdeliveryoptionId } from '../../data/deliveryoption
 import { renderpaymentsummary } from './paymentsummary.js';
 
 
+
+
+
+
+
 export function renderordersummary (){
 
 

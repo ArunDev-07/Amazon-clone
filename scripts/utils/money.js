@@ -1,4 +1,4 @@
- function formcurrency(priceCents){
+ export function formcurrency(priceCents){
    return (Math.round(priceCents) / 100).toFixed(2) ;
  }
 
