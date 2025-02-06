@@ -1,4 +1,4 @@
-import {formcurrency} from "../scripts/utils/money.js" ;
+import {formcurrency} from "../../scripts/utils/money.js" ;
 
 describe('test suite : formcurrency', ()=>{
     it('converts cents into dollors', ()=>{
