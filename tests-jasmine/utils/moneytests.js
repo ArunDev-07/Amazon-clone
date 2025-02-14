@@ -12,4 +12,8 @@ describe('test suite : formcurrency', ()=>{
     it('rounds up to nearest cents', ()=>{
         expect(formcurrency(2000.5)).toEqual('20.01');
     });
+    it('rounds down to the nearest cent', () => {
+        expect(formcurrency(2000.4)).toEqual('20.00');
+      });
+    
 });

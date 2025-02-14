@@ -7,6 +7,7 @@ describe('test suite : renderordersummary',()=>{
   const productId2 = "15b6fc6f-327a-4ec4-896f-486349e85a3d";
   beforeEach(()=>{
     
+    
     spyOn(localStorage,'setItem')
     document.getElementById('carttest').innerHTML = 
     `
@@ -49,11 +50,13 @@ describe('test suite : renderordersummary',()=>{
        expect(document.querySelector(`.js-container-${productId2}`)).not.toEqual(null);
        expect(cart.length).toEqual(1);
        expect(cart[0].productId).toEqual(productId2);
+       
 
        document.getElementById('carttest').innerHTML = "";
        
        
         
     });
+    
     
 });
