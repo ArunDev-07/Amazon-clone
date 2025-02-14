@@ -9,7 +9,7 @@ describe('test suite : addtocart', ()=>{
         spyOn(localStorage, 'getItem').and.callFake(()=>{
             return JSON.stringify([{
                 productId : 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-                Quantity : 1,
+                Quantity : 2,
                 deliveryoptionId : '1'
 
             }]);
@@ -22,7 +22,7 @@ describe('test suite : addtocart', ()=>{
         expect(cart.length).toEqual(1);
         expect(localStorage.setItem).toHaveBeenCalledTimes(1);
         expect(cart[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
-        expect(cart[0].Quantity).toEqual(2);
+        expect(cart[0].Quantity).toEqual(3);
 
 
     })
