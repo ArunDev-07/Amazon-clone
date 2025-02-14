@@ -1,4 +1,13 @@
-import { renderordersummary } from "./orders/ordersummary.js";
+import { renderOrdersummary } from "./orders/ordersummary.js";
 import { renderpaymentsummary } from "./orders/paymentsummary.js";
-renderordersummary();
+import { cart } from "../data/cart.js";
+renderOrdersummary();
 renderpaymentsummary();
+
+let checkoutitems = 0 ;
+       cart.forEach((cartitem)=>{
+        checkoutitems += cartitem.Quantity;
+        document.querySelector('.js-link-checkout').innerHTML = checkoutitems ;
+      })
+      
+       
