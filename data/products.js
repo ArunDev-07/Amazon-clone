@@ -65,6 +65,44 @@ class Clothing extends Product {
  };
 };
 
+/*
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+
+
+
+console.log(this);
+
+const object2 = {
+  a : 2,
+  b : this.a,
+  
+}
+  
+ 
+
+function logthis()
+{
+  console.log(this);
+}
+logthis();
+logthis.call('Hello i am a full stack developer');
+
+
+
+
+const object3 = {
+  method : ()=>{
+    console.log(this);
+  }
+};
+object3.method();
+
+[1,2,3,4].forEach(()=>{
+  console.log(this)
+})
+  */
 
 
 
