@@ -1,12 +1,12 @@
-function Cart(localStoragemyvalue){
 
-
+function Cart(localStoragekey){
 
 const cart = {
-  cartItems : undefined, 
+  cartItems : undefined,
+
    loadfromstorage(){
   
-   this.cartItems = JSON.parse(localStorage.getItem(localStoragemyvalue));
+     this.cartItems = JSON.parse(localStorage.getItem(localStoragekey));
   if(!this.cartItems){
     this.cartItems  =  [{
     productId : "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -21,11 +21,12 @@ const cart = {
     ]};
   },
 
-  savestorage() {
-    localStorage.setItem(localStoragemyvalue , JSON.stringify(this.cartItems));
+   savestorage() {
+    localStorage.setItem(localStoragekey, JSON.stringify(this.cartItems));
  },
 
-  addtocart(productId){
+
+ addtocart(productId){
   let matchingitem;
 
 this.cartItems.forEach((cartitem)=>{
@@ -48,10 +49,8 @@ matchingitem.Quantity +=1;
 
  }
 
- this.savestorage();
 
- 
- 
+ this.savestorage();
 },
  removecart(productId){
   const newcart = [];
@@ -68,7 +67,7 @@ matchingitem.Quantity +=1;
 
   this.cartItems = newcart;
 
- this.savestorage();
+  this.savestorage();
 
   
 
@@ -93,34 +92,32 @@ matchingitem.Quantity +=1;
 
 }
 
+ 
+ 
 
-
-
-
+  
 };
-
-
 
 return cart ;
 
+}
 
-};
+
 
 
 const cart = Cart('cart-oop');
-const businessCart = Cart('business');
-const mycart = Cart('mine')
+const business = Cart('cart-business');
+
+
 
 cart.loadfromstorage();
-businessCart.loadfromstorage();
-mycart.loadfromstorage();
+business.loadfromstorage();
+
 
 
 
 console.log(cart);
-console.log(businessCart);
-console.log(mycart);
-
+console.log(business)
 
 
 
@@ -129,4 +126,5 @@ console.log(mycart);
 
  
     
+   
     
