@@ -1,4 +1,4 @@
-import {cart , removecart , updatedeliveryoption} from '../../data/cart.js';
+import {cart , removecart , updatedeliveryoption } from '../../data/cart.js';
 import { products } from '../../data/products.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import  formcurrency  from '../utils/money.js';
@@ -207,6 +207,8 @@ export function renderOrdersummary (){
        const updatecart =  document.querySelectorAll(".js-update-link") ;
        
        updatecart.forEach((link)=>{
+       
+
         
         link.addEventListener("click",()=>{
           link.remove()
