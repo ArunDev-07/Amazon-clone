@@ -103,17 +103,20 @@ constructor(localStoragekey) {
     
     const cart = new Cart('cart-oop');
     const business = new Cart('cart-business');
+    const mycart = new Cart('my-cart');
 
     
 
     
     console.log(cart);
     console.log(business); 
+   
 
   
 
    console.log( business instanceof Cart);
    console.log(cart instanceof Cart);
+ 
 
 
 

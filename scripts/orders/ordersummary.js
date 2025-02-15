@@ -11,6 +11,7 @@ import { renderpaymentsummary } from './paymentsummary.js';
 
 
 
+
 export function renderOrdersummary (){
 
 
@@ -72,7 +73,7 @@ export function renderOrdersummary (){
                 ${matchingproduct.name}
               </div>
               <div class="product-price">
-                $${formcurrency(matchingproduct.priceCents)}
+                ${matchingproduct.getprice()}
               </div>
               <div class="product-quantity
               js-test-quantity-${matchingproduct.id}">
