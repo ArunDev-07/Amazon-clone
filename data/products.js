@@ -106,6 +106,35 @@ object3.method();
 
 
 
+class Cars {
+ brand;
+ colour;
+ speed; 
+
+
+
+  constructor (cardetails){
+    this.brand = cardetails.brand;
+    this.price = cardetails.price;
+    this.speed = cardetails.speed ; 
+
+
+  }
+
+  display(){
+    console.log(`car name is ${this.brand} the price of the car is ${this.price} the speed of  the car is ${this.speed}`)
+  }
+};
+
+const mycar = new Cars({
+  brand : 'volswogan',
+  price : '300000',
+  speed : '120 km/h'
+
+});
+
+
+
 
 export const products = [
   
@@ -769,10 +798,13 @@ export const products = [
   }
 ].map((productDetails)=>{
 
- if(productDetails.type === 'clothing'){
-  return new Clothing(productDetails);
- };
- return new Product(productDetails);
-  
+  if(productDetails.type === 'clothing'){
+    return new Clothing (productDetails);
+  }
 
-});
+
+
+  return new Product (productDetails);
+
+
+})

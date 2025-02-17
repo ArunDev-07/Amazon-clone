@@ -49,6 +49,7 @@ products.forEach((product)=>{
     </div>
     ${product.extraInfohtml()}
     
+    
 
     <div class="product-spacer"></div>
 
