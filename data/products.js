@@ -110,7 +110,7 @@ export let products = [];
 
 
 
- export function loadproducts (loadproductsparameter) {
+ export function loadproducts (loadproductparameter) {
   const xhr  = new XMLHttpRequest();
 
   xhr.addEventListener ('load', ()=>{
@@ -119,12 +119,17 @@ export let products = [];
       if(productDetails.type === 'clothing'){
         return new Clothing(productDetails);
       }
-      return new Product(productDetails); 
+      return new Product(productDetails);
+      
+      
     });
 
     console.log('load products');
+    
+    loadproductparameter();
 
-    loadproductsparameter();
+    
+    
     
     
   });

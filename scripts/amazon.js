@@ -10,7 +10,7 @@ loadproducts(renderproducts);
 
 
 
-function renderproducts(){
+ function renderproducts(){
 
 let producthtml="";
 products.forEach((product)=>{
