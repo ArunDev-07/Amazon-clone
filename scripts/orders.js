@@ -1,16 +1,13 @@
 import { renderOrdersummary } from "./orders/ordersummary.js";
 import { renderpaymentsummary } from "./orders/paymentsummary.js";
 import {  cart ,  loadCart} from "../data/cart.js";
-import { loadproducts } from "../data/products.js";
+import { loadfetch } from "../data/products.js";
+
 
 
 Promise.all([
-  new Promise((resolve)=>{
-    loadproducts(()=>{
-     resolve('Role');
-
-    })
-  }),
+  loadfetch()
+  ,
   new Promise((resolve)=>{
     loadCart(()=>{
       resolve('Full stack developer');

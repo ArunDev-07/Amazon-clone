@@ -1,16 +1,17 @@
 import {cart,addtocart} from "../data/cart.js";
-import { products , loadproducts } from "../data/products.js";
+import { products ,loadfetch } from "../data/products.js";
 import  formcurrency  from "./utils/money.js";
 
 
 
 
-loadproducts(renderproducts);
 
 
+loadfetch();
 
 
  function renderproducts(){
+
 
 let producthtml="";
 products.forEach((product)=>{
