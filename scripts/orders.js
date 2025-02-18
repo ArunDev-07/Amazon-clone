@@ -4,13 +4,10 @@ import { cart } from "../data/cart.js";
 import { loadproducts } from "../data/products.js";
 
 
-loadproducts(addproducts);
-
-
-function addproducts(){
+loadproducts(()=>{
   renderOrdersummary();
   renderpaymentsummary();
-}
+});
 
 
 let checkoutitems = 0 ;
