@@ -4,10 +4,18 @@ import { cart } from "../data/cart.js";
 import { loadproducts } from "../data/products.js";
 
 
+
+
+
+
+
+
+
 loadproducts(()=>{
   renderOrdersummary();
   renderpaymentsummary();
 });
+
 
 
 let checkoutitems = 0 ;
@@ -15,5 +23,4 @@ let checkoutitems = 0 ;
         checkoutitems += cartitem.Quantity;
         document.querySelector('.js-link-checkout').innerHTML = checkoutitems ;
       })
-      
        
