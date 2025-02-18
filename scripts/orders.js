@@ -1,9 +1,17 @@
 import { renderOrdersummary } from "./orders/ordersummary.js";
 import { renderpaymentsummary } from "./orders/paymentsummary.js";
 import { cart } from "../data/cart.js";
-import "../data/backend-practice.js";
-renderOrdersummary();
-renderpaymentsummary();
+import { loadproducts } from "../data/products.js";
+
+
+loadproducts(addproducts);
+
+
+function addproducts(){
+  renderOrdersummary();
+  renderpaymentsummary();
+}
+
 
 let checkoutitems = 0 ;
        cart.forEach((cartitem)=>{

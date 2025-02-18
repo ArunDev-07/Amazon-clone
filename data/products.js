@@ -106,36 +106,41 @@ object3.method();
 
 
 
-class Cars {
- brand;
- colour;
- speed; 
+export let products = [];
 
 
 
-  constructor (cardetails){
-    this.brand = cardetails.brand;
-    this.price = cardetails.price;
-    this.speed = cardetails.speed ; 
+ export function loadproducts (loadproductsparameter) {
+  const xhr  = new XMLHttpRequest();
 
+  xhr.addEventListener ('load', ()=>{
+    products = JSON.parse(xhr.response).map((productDetails)=>{
 
-  }
+      if(productDetails.type === 'clothing'){
+        return new Clothing(productDetails);
+      }
+      return new Product(productDetails); 
+    });
 
-  display(){
-    console.log(`car name is ${this.brand} the price of the car is ${this.price} the speed of  the car is ${this.speed}`)
-  }
+    console.log('load products');
+
+    loadproductsparameter();
+    
+    
+  });
+
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+  xhr.send();
 };
 
-const mycar = new Cars({
-  brand : 'volswogan',
-  price : '300000',
-  speed : '120 km/h'
-
-});
 
 
 
 
+
+
+
+/*
 export const products = [
   
   {
@@ -808,3 +813,4 @@ export const products = [
 
 
 })
+  */

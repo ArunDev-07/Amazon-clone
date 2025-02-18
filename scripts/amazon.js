@@ -1,12 +1,16 @@
 import {cart,addtocart} from "../data/cart.js";
-import { products } from "../data/products.js";
+import { products , loadproducts } from "../data/products.js";
 import  formcurrency  from "./utils/money.js";
 
 
 
 
+loadproducts(renderproducts);
 
 
+
+
+function renderproducts(){
 
 let producthtml="";
 products.forEach((product)=>{
@@ -95,3 +99,4 @@ document.querySelectorAll(".js-add-to-cart")
   });
   
 });
+}
