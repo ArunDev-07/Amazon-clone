@@ -105,40 +105,13 @@ object3.method();
   */
 
 
-
 export let products = [];
 
 export function loadfetch(){
-
   const promise = fetch('https://supersimplebackend.dev/products').then((response)=>{
     return response.json();
-
-  }).then((productsdata)=>{
-    products = productsdata.map((productdetails)=>{
-      if(productdetails.type === 'clothing'){
-        return new Clothing(productdetails);
-      }
-
-return new Product(productdetails);
-    });
-    console.log('load products');
-   
-    
-
-  });
-
-  return promise;
-}
-loadfetch().then(()=>{
-  console.log('Next Step');
-});
-
-/*
- export function loadproducts (loadproductparameter) {
-  const xhr  = new XMLHttpRequest();
-
-  xhr.addEventListener ('load', ()=>{
-    products = JSON.parse(xhr.response).map((productDetails)=>{
+  }).then((productdata)=>{
+    products = productdata.map((productDetails)=>{
 
       if(productDetails.type === 'clothing'){
         return new Clothing(productDetails);
@@ -147,27 +120,55 @@ loadfetch().then(()=>{
       
       
     });
-
-    console.log('load products');
-    
-    loadproductparameter();
-
-    
-    
     
     
   });
+  
+  return promise;
+  
+  
+}
 
-  xhr.open('GET', 'https://supersimplebackend.dev/products');
+
+loadfetch().then(()=>{
+  console.log('load products');
+});
+
+
+
+
+ export function loadproducts(loadproductsparameter){
+  const xhr =new XMLHttpRequest();
+  xhr.addEventListener('load',()=>{
+    products = JSON.parse(xhr.response).map((productDetails)=>{
+
+      if(productDetails.type === 'clothing'){
+        return new Clothing(productDetails);
+      }
+      return new Product(productDetails);
+
+
+    });
+    console.log('products are loaded successsfully ');
+    loadproductsparameter();
+   
+
+  });
+  
+
+
+
+  xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
-};
+ }
+ 
 
 
 
 
 
 
-*/
+
 
 
 

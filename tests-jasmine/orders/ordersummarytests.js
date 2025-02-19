@@ -9,13 +9,12 @@ describe('test suite : renderordersummary',()=>{
 
 
 
-
 beforeAll((done)=>{
-loadfetch().then(()=>{
-  done();
+  loadfetch().then(()=>{       /* we can't use the loadfetch as a function because it is a promise */
+    done();
+  })
 })
 
-});
 
 
   
