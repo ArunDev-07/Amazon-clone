@@ -121,18 +121,18 @@ export function loadfetch(){
       
     });
     
+    console.log('load products');
     
+  }).catch((error)=>{
+    console.log('unexpected error. please try again');
   });
   
   return promise;
   
   
-}
+};
 
 
-loadfetch().then(()=>{
-  console.log('load products');
-});
 
 
 
@@ -154,13 +154,13 @@ loadfetch().then(()=>{
    
 
   });
-  
 
 
 
   xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
  }
+ 
  
 
 

@@ -4,26 +4,31 @@ import {  cart ,  loadCart} from "../data/cart.js";
 import { loadfetch } from "../data/products.js";
 
 async function loadpage(){
-await loadfetch();
 
-const value = await new Promise ((resolve)=>{
 
-  loadCart(()=>{
+try{
+ 
+  await loadfetch();
+
+const value =  await new Promise ((resolve,reject)=>{
+    loadCart(()=>{
     resolve('value 3');
-    
-  });
+     
+    })
 
-});
+  }) 
+}  catch(error){
 
-renderOrdersummary();
-renderpaymentsummary();
+console.log('unexpected error.please try again');
+  }
+    renderOrdersummary();
+    renderpaymentsummary();
+ 
 
-}
+  }
+
+
 loadpage();
-  
-
-
-
 
 
  /* we add only loadfetch because loadfetch is already a promise so dont want change into promise just use it as a function */
