@@ -211,7 +211,7 @@ export function renderOrdersummary (){
 
         
         link.addEventListener("click",()=>{
-          link.remove()
+          window.location.href = 'orders.html';
           
           
         })
