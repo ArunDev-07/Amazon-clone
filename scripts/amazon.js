@@ -57,8 +57,9 @@ products.forEach((product)=>{
 
     <div class="product-spacer"></div>
 
-    <div class="added-to-cart">
-      <img src="images/icons/checkmark.png">
+    <div class="added-to-cart"
+    data-product-id= "${product.id}">
+      <img class='add-image'  src="images/icons/checkmark.png">
       Added
     </div>
 
@@ -84,6 +85,7 @@ document.querySelectorAll(".js-add-to-cart")
 .forEach((button)=>{
   button.addEventListener("click",()=>{
    const  productId = button.dataset.productId;
+
    
    
      addtocart(productId);
@@ -99,4 +101,32 @@ document.querySelectorAll(".js-add-to-cart")
   });
   
 });
+
+document.querySelectorAll(".js-add-to-cart").forEach((button) => {
+  button.addEventListener("click", () => {
+    // Find the correct '.product' container
+   
+    
+    // Find the '.added-to-cart' inside that container
+   
+    const productContainer = button.closest(".product-container");
+    
+    // Find the '.added-to-cart' inside that container
+    const addedCart = productContainer.querySelector('.added-to-cart');
+    
+    // Add opacity effect to the addedCart element
+    addedCart.style.opacity = '1';
+    setTimeout(() => {
+      addedCart.style.opacity = '0';
+    }, 1000);
+  
+
+   
+  })
+});
+
+
+
+
+
 }

@@ -11,14 +11,14 @@ try{
   await loadfetch();
 
 const value =  await new Promise ((resolve,reject)=>{
-    loadCart(()=>{
+
+  loadCart(()=>{
     resolve('value 3');
-     
-    })
+  })
+})
 
-  }) 
+  
 }  catch(error){
-
 console.log('unexpected error.please try again');
   }
     renderOrdersummary();
@@ -72,7 +72,9 @@ let checkoutitems = 0 ;
        cart.forEach((cartitem)=>{
         checkoutitems += cartitem.Quantity;
         document.querySelector('.js-link-checkout').innerHTML = checkoutitems + " " +  'items' ;
+        
       })
+    
 
       
        

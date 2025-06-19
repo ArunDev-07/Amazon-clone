@@ -12,12 +12,13 @@ import { renderpaymentsummary } from './paymentsummary.js';
 
 
 
+
 export function renderOrdersummary (){
 
 
         let cartsummaryhtml = "";
         
-        cart.forEach((cartitem=>{
+        cart.forEach((cartitem)=>{
           
 
           const productId = cartitem.productId ;
@@ -106,7 +107,7 @@ export function renderOrdersummary (){
         `;
 
         cartsummaryhtml += cartsummary ;
-        }));
+        });
         
 
         function deliveryitems(matchingproduct ,cartitem){
@@ -182,6 +183,7 @@ export function renderOrdersummary (){
         container.remove();
 
         renderpaymentsummary();
+       
         
         
           });
